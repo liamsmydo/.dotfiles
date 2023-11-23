@@ -1,29 +1,31 @@
+#!/bin/sh
+[ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
+$HOME/.cache/wal/colors.sh
 
-# >>> mamba initialize >>>
-# !! Contents within this block are managed by 'mamba init' !!
-export MAMBA_EXE='/home/Lixm/.micromamba/bin/micromamba';
-export MAMBA_ROOT_PREFIX='/home/Lixm/micromamba';
-__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__mamba_setup"
-else
-    alias micromamba="$MAMBA_EXE"  # Fallback on help from mamba activate
-fi
-unset __mamba_setup
-# <<< mamba initialize <<<
+# history
+HISTFILE=~/.zsh_history
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/Lixm/micromamba/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/Lixm/micromamba/etc/profile.d/conda.sh" ]; then
-        . "/home/Lixm/micromamba/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/Lixm/micromamba/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+# source
+plug "$HOME/.config/zsh/aliases.zsh"
+plug "$HOME/.config/zsh/exports.zsh"
 
+# plugins
+plug "esc/conda-zsh-completion"
+plug "zsh-users/zsh-autosuggestions"
+plug "zap-zsh/supercharge"
+plug "zap-zsh/fzf"
+plug "zsh-users/zsh-syntax-highlighting"
+plug "zap-zsh/atmachine-prompt"
+export PATH="$HOME/.local/bin":$PATH
+
+#key bindings
+bindkey -e                                        # emacs key bindings
+bindkey ' ' magic-space                           # do history expansion on space
+bindkey '^[[3;5~' kill-word                       # ctrl + Supr
+bindkey '^[[1;5C' forward-word                    # ctrl + ->
+bindkey '^[[C' forward-word                       # ctrl + ->
+bindkey '^[[1;5D' backward-word                   # ctrl + <-
+bindkey '^[[D' backward-word                      # ctrl + <-
+bindkey '^[[5~' beginning-of-buffer-or-history    # page up
+bindkey '^[[6~' end-of-buffer-or-history          # page down
+bindkey '^[[Z' undo                               # shift + tab undo last action
