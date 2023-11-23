@@ -4,21 +4,30 @@ userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
+export VISUAL="nvim"
+export EDITOR="$VISUAL"
+
+
 # gpu
-
-
 xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto
+
+
+
+
+# Don't Randomly Turn off
+xset s off
+xset -dpms
+xset s noblank
+
+# Speedy keys
+xset r rate 190 40
+
 
 
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
-
-
-
-
-
 
 
     xrdb -merge $sysresources
@@ -30,12 +39,6 @@ if [ -f $sysmodmap ]; then
 fi
 
 if [ -f "$userresources" ]; then
-
-
-
-
-
-
 
     xrdb -merge "$userresources"
 
