@@ -1,7 +1,9 @@
 # .dotfiles
+![image](https://github.com/liamsmydo/.dotfiles/assets/130768620/3cbace21-e125-4ac5-8a45-ff4c06f410ea)
+
 OS: Arch
 
-shell: Bash
+Shell: ZSH
 
 WM: i3
 
@@ -11,9 +13,10 @@ Terminal: alacritty
 
 Compositor: picom
 
-File manager: ranger
+File Manager: ranger
 
-text editor: nvim
+Text Editor: nvim
 
 IDE: vscode
+
 
