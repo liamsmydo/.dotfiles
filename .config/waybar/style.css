@@ -1,0 +1,478 @@
+/*
+ * __        __          _                  ____  _         _       
+ * \ \      / /_ _ _   _| |__   __ _ _ __  / ___|| |_ _   _| | ___  
+ *  \ \ /\ / / _` | | | | '_ \ / _` | '__| \___ \| __| | | | |/ _ \ 
+ *   \ V  V / (_| | |_| | |_) | (_| | |     ___) | |_| |_| | |  __/ 
+ *    \_/\_/ \__,_|\__, |_.__/ \__,_|_|    |____/ \__|\__, |_|\___| 
+ *                 |___/                              |___/         
+ *  
+ * 
+ * ----------------------------------------------------- 
+*/
+
+/* -----------------------------------------------------
+ * Import Pywal colors 
+ * ----------------------------------------------------- */
+/* @import 'style-light.css'; */
+/* -----------------------------------------------------
+ * General 
+ * ----------------------------------------------------- */
+
+@define-color base   #1e1e2e;
+@define-color mantle #181825;
+@define-color crust  #11111b;
+
+@define-color text     #cdd6f4;
+@define-color subtext0 #a6adc8;
+@define-color subtext1 #bac2de;
+
+@define-color surface0 #313244;
+@define-color surface1 #45475a;
+@define-color surface2 #585b70;
+
+@define-color overlay0 #6c7086;
+@define-color overlay1 #7f849c;
+@define-color overlay2 #9399b2;
+
+@define-color blue      #89b4fa;
+@define-color lavender  #b4befe;
+@define-color sapphire  #74c7ec;
+@define-color sky       #89dceb;
+@define-color teal      #94e2d5;
+@define-color green     #a6e3a1;
+@define-color yellow    #f9e2af;
+@define-color peach     #fab387;
+@define-color maroon    #eba0ac;
+@define-color red       #f38ba8;
+@define-color mauve     #cba6f7;
+@define-color pink      #f5c2e7;
+@define-color flamingo  #f2cdcd;
+@define-color rosewater #f5e0dc;
+
+* {
+    font-family: "Fira Sans Semibold", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    border: none;
+    border-radius: 0px;
+}
+
+window#waybar {
+    background-color:@base;
+    border-bottom: 0px @crust;
+    /* color: #FFFFFF; */
+    transition-property: crust;
+    transition-duration: .5s;
+}
+
+/* -----------------------------------------------------
+ * Workspaces 
+ * ----------------------------------------------------- */
+
+#workspaces {
+    margin: 5px 1px 6px 1px;
+    padding: 0px 1px;
+    border-radius: 15px;
+    border: 0px;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 16px;
+    color: @text;
+}
+
+#workspaces button {
+    padding: 0px 5px;
+    margin: 4px 3px;
+    border-radius: 15px;
+    border: 0px;
+    color: @lavender;
+    transition: all 0.3s ease-in-out;
+}
+
+#workspaces button.active {
+    color: @lavender;
+    background: @crust;
+    border-radius: 15px;
+    min-width: 40px;
+    transition: all 0.3s ease-in-out;
+}
+
+#workspaces button:hover {
+    color: @lavender;
+    background: @overlay1;
+    border-radius: 15px;
+}
+
+/* -----------------------------------------------------
+ * Tooltips
+ * ----------------------------------------------------- */
+
+tooltip {
+    border-radius: 10px;
+    background-color: @base;
+    opacity:0.8;
+    padding:20px;
+    margin:0px;
+}
+
+tooltip label {
+    color: @text;
+}
+
+/* -----------------------------------------------------
+ * Window
+ * ----------------------------------------------------- */
+
+#window {
+    background: @crust;
+    margin: 10px 15px 10px 0px;
+    padding: 2px 10px 0px 10px;
+    border-radius: 12px;
+    color:@lavender;
+    font-size:16px;
+    font-weight:normal;
+}
+
+window#waybar.empty #window {
+    background-color:transparent;
+}
+
+/* -----------------------------------------------------
+ * Taskbar
+ * ----------------------------------------------------- */
+
+#taskbar {
+    background: @base;
+    margin: 6px 15px 6px 0px;
+    padding:0px;
+    border-radius: 15px;
+    font-weight: normal;
+    font-style: normal;
+    border: 3px solid @base;
+}
+
+#taskbar button {
+    margin:0;
+    border-radius: 15px;
+    padding: 0px 5px 0px 5px;
+}
+
+/* -----------------------------------------------------
+ * Modules
+ * ----------------------------------------------------- */
+
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+/* -----------------------------------------------------
+ * Custom Quicklinks
+ * ----------------------------------------------------- */
+
+ #custom-browser {
+     margin-right: 23px;
+     font-size: 20px;
+     font-weight: bold;
+     color: @pink;
+ }
+ #custom-brave,
+ #custom-keybindings, 
+ #custom-outlook, 
+ #custom-filemanager {
+     margin-right: 23px;
+     font-size: 20px;
+     font-weight: bold;
+     color: @mauve;
+ }
+ #custom-teams, 
+ #custom-chatgpt, 
+ #custom-calculator, 
+ #custom-windowsvm, 
+ #custom-cliphist, 
+ #custom-wallpaper, 
+ #custom-settings, 
+ #custom-wallpaper, 
+ #custom-system {
+     margin-right: 23px;
+     font-size: 20px;
+     font-weight: bold;
+     color: @peach;
+ }
+ #custom-waybarthemes {
+     margin-right: 23px;
+     font-size: 20px;
+     font-weight: bold;
+     color: @lavender;
+ }
+
+ #custom-discord {
+  
+     margin-right: 23px;
+     font-size: 20px;
+     font-weight: bold;
+     color: @lavender;
+ }
+ 
+ #custom-spotify{
+  
+     margin-right: 23px;
+     font-size: 20px;
+     font-weight: bold;
+     color: @green;
+ }
+
+ #custom-vscode{
+  
+     margin-right: 23px;
+     font-size: 20px;
+     font-weight: bold;
+     color: @sapphire;
+ }
+
+ #custom-obsidian{
+  
+     margin-right: 23px;
+     font-size: 20px;
+     font-weight: bold;
+     color: @lavender;
+ }
+
+ #custom-waybarthemes,#custom-system {
+     margin-right:15px;
+ }
+
+/* -----------------------------------------------------
+ * Custom Modules
+ * ----------------------------------------------------- */
+
+#custom-appmenu {
+    background-color: @crust;
+    font-size: 16px;
+    color: @lavender;
+    border-radius: 15px;
+    padding: 2px 10px 0px 10px;
+    margin: 10px 15px 10px 10px;
+}
+
+/* -----------------------------------------------------
+ * Custom Exit
+ * ----------------------------------------------------- */
+
+#custom-exit {
+    margin: 0px 20px 0px 0px;
+    padding:0px;
+    font-size:20px;
+    color: @maroon;
+}
+
+/* -----------------------------------------------------
+ * Custom Updates
+ * ----------------------------------------------------- */
+
+#custom-updates {
+    background-color: @crust;
+    font-size: 16px;
+    color: @crust;
+    border-radius: 15px;
+    padding: 2px 10px 0px 10px;
+    margin: 10px 15px 10px 0px;
+}
+
+#custom-updates.green {
+    background-color: @green;
+}
+
+#custom-updates.yellow {
+    background-color: @yellow;
+    color: #FFFFFF;
+}
+
+#custom-updates.red {
+    background-color: @red;
+    color: #FFFFFF;
+}
+
+/* -----------------------------------------------------
+ * Custom Youtube
+ * ----------------------------------------------------- */
+
+#custom-youtube {
+    background-color: @backgroundlight;
+    font-size: 16px;
+    color: @textcolor2;
+    border-radius: 15px;
+    padding: 2px 10px 0px 10px;
+    margin: 10px 15px 10px 0px;
+}
+
+/* -----------------------------------------------------
+ * Hardware Group
+ * ----------------------------------------------------- */
+
+ #disk,#memory,#cpu,#language {
+    margin:0px;
+    padding:0px;
+    font-size:16px;
+    color:@lavender;
+}
+
+#language {
+    margin-right:10px;
+}
+
+/* -----------------------------------------------------
+ * Clock
+ * ----------------------------------------------------- */
+
+#clock {
+    background-color: @crust;
+    font-size: 16px;
+    color: @lavender;
+    border-radius: 15px;
+    padding: 2px 10px 0px 10px;
+    margin: 10px 15px 10px 0px;
+}
+
+/* -----------------------------------------------------
+ * Pulseaudio
+ * ----------------------------------------------------- */
+
+#pulseaudio {
+    background-color: @crust;
+    font-size: 16px;
+    color: @lavender;
+    border-radius: 15px;
+    padding: 2px 10px 0px 10px;
+    margin: 10px 15px 10px 0px;
+}
+#backlight{
+    background-color: @crust;
+    font-size: 16px;
+    color: @flamingo;
+    border-radius: 15px;
+    padding: 2px 10px 0px 10px;
+    margin: 10px 15px 10px 0px;
+}
+
+#pulseaudio.muted {
+    background-color: @crust;
+    color: @text;
+}
+
+/* -----------------------------------------------------
+ * Network
+ * ----------------------------------------------------- */
+
+#network {
+    background-color: @crust;
+    font-size: 16px;
+    color: @lavender;
+    border-radius: 15px;
+    padding: 2px 10px 0px 10px;
+    margin: 10px 15px 10px 0px;
+}
+
+#network.ethernet {
+    background-color: @crust;
+    color: @text;
+}
+
+#network.wifi {
+    background-color: @crust;
+    color: @yellow;
+
+}
+
+/* -----------------------------------------------------
+ * Bluetooth
+ * ----------------------------------------------------- */
+
+ #bluetooth, #bluetooth.on, #bluetooth.connected {
+    background-color: @crust;
+    font-size: 16px;
+    color: @lavender;
+    border-radius: 15px;
+    padding: 2px 10px 0px 10px;
+    margin: 10px 15px 10px 0px;
+}
+
+#bluetooth.off {
+    background-color: transparent;
+    padding: 0px;
+    margin: 0px;
+}
+
+/* -----------------------------------------------------
+ * Battery
+ * ----------------------------------------------------- */
+
+#battery {
+    background-color: @crust;
+    font-size: 16px;
+    color: @lavender;
+    border-radius: 15px;
+    padding: 2px 15px 0px 10px;
+    margin: 10px 15px 10px 0px;
+}
+
+#battery.charging, #battery.plugged {
+    color: @green;
+    background-color: @crust;
+}
+
+@keyframes blink {
+    to {
+        background-color: @crust;
+        color: @text;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: @text;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* -----------------------------------------------------
+ * Tray
+ * ----------------------------------------------------- */
+
+#tray {
+    background-color: @base;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @red;
+}
+
+/* -----------------------------------------------------
+ * Other
+ * ----------------------------------------------------- */
+
+label:focus {
+    background-color: #000000;
+}
+
+#backlight {
+    background-color: @crust;
+}
+
+#network {
+    background-color: @crust;
+}
+
+#network.disconnected {
+    background-color: @crust;
+}
+
