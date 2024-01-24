@@ -1,0 +1,8 @@
+###############################################################
+#ADD THE CONTENT IN THIS FILE TO /ETC/UDEV/RULES.D/POWER.RULES#
+###############################################################
+
+# Rule for when switching to battery
+ACTION=="change", SUBSYSTEM=="power_supply", ATTR{type}=="Mains", ATTR{online}=="1", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/Lixm/.Xauthority" RUN+="/usr/bin/su Lixm -c '/home/Lixm/Scripts/Notifications/chargingnotify 1'"
+# Rule for when switching to AC
+ACTION=="change", SUBSYSTEM=="power_supply", ATTR{type}=="Mains", ATTR{online}=="0", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/Lixm/.Xauthority" RUN+="/usr/bin/su Lixm -c '/home/Lixm/Scripts/Notifications/chargingnotify 0'"
